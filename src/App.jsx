@@ -1,7 +1,16 @@
+import React, { useState } from "react";
+import Carousel from "../Carousel";
+
+
 const App = () => {
+  const [currentPerson, setCurrentPerson] = useState(0)
+
   return (
     <main>
-      <h2>Slider Starter</h2>
+      <Carousel 
+        currentPerson={currentPerson}
+        setCurrentPerson={setCurrentPerson}
+        />
     </main>
   );
 };
