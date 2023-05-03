@@ -261,7 +261,8 @@ ul {
   max-width: 800px;
   position: relative;
   height: 450px;
-  overflow: hidden;
+  /*rest of slides invisible: */
+  /* overflow: hidden; */
 }
 .slide {
   text-align: center;
@@ -342,6 +343,10 @@ ul {
 }
 .next-slide {
   transform: translateX(100%);
+}
+
+.prev-slide {
+  transform: translateX(-100%);
 }
 
 /* ============= Slick Carousel =============== */

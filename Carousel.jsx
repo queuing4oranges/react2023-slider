@@ -33,14 +33,14 @@ export default function Carousel({ setCurrentPerson, currentPerson }) {
         <div 
         className="people-container"
         style={{position: "relative"}}>
-            {people.map((person) => {
+            {people.map((person, index) => {
                 const { id, image, name, title, quote } = person
 
                 return(
                     <article 
                     className='slide' 
                     key={id}
-                    style={{position: "absolute"}}
+                    style={{transform:`translateX(${100*index}%)`}}
                     >
                         <img 
                         src={image} 
