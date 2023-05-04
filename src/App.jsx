@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Carousel from "../Carousel";
+import CarouselSlider from "../CarouselSlider"
+
 
 
 const App = () => {
@@ -7,10 +9,12 @@ const App = () => {
 
   return (
     <main>
-      <Carousel 
+      <CarouselSlider/>
+
+      {/* <Carousel 
         currentPerson={currentPerson}
         setCurrentPerson={setCurrentPerson}
-        />
+        /> */}
     </main>
   );
 };

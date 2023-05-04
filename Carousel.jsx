@@ -1,32 +1,34 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { shortList, list, longList } from './src/data'
 
 export default function Carousel({ setCurrentPerson, currentPerson }) {
-    const [people, setPeople] = useState(list)
-    console.log(people)
-    
-    //checking if slide is at the end - using prev. state value for counting
-    const prevSlide = () => {
-        if (currentPerson!==0){
-            setCurrentPerson((currentPerson) =>{
-                const newPerson = currentPerson-1
-                return newPerson
-            })
-        } 
-        console.log(currentPerson)
-    }
+    const [people, setPeople] = useState(longList)
   
     const nextSlide = () => {
-        if (currentPerson!==(people.length+1)){
-            setCurrentPerson((currentPerson) =>{
-                const newPerson = currentPerson + 1
+            setCurrentPerson((oldPerson) =>{
+                const newPerson = (oldPerson + 1) % people.length
                 return newPerson
             })
-        }
         console.log(currentPerson)
     }
 
+    const prevSlide = () => {
+        setCurrentPerson((oldPerson) => {
+            const newPerson = (oldPerson -1 + people.length) % people.length 
+            return newPerson
+        })
+        console.log(currentPerson)
 
+    }
+
+    useEffect(()=>{
+        let autoSlide = setInterval(() => {
+            nextSlide()
+        }, 2000);
+        return() => {   //runs when the component is unmounted or "currentPerson" changes
+            clearInterval(autoSlide)
+        }
+    }, [currentPerson])
 
   return (
     <div className='slider-container'>
@@ -40,7 +42,8 @@ export default function Carousel({ setCurrentPerson, currentPerson }) {
                     <article 
                     className='slide' 
                     key={id}
-                    style={{transform:`translateX(${100*index}%)`}}
+                    //move slide to right with translate 100% times the index of the slide
+                    style={{transform:`translateX(${100*(index-currentPerson)}%)`}}
                     >
                         <img 
                         src={image} 

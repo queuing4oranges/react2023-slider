@@ -262,7 +262,7 @@ ul {
   position: relative;
   height: 450px;
   /*rest of slides invisible: */
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 .slide {
   text-align: center;
