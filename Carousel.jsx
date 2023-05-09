@@ -51,8 +51,8 @@ export default function Carousel({ setCurrentPerson, currentPerson }) {
                         className='person-img'
                         />
 
-                        <p
-                        className='name'>{name}</p>
+                        <h2
+                        className='name'>{name}</h2>
                         <p className='title'>{title}</p>
                         <p 
                         className='text'>{quote}</p>

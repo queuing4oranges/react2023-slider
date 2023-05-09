@@ -17,7 +17,8 @@ export default function CarouselSlider() {
       slidesToScroll: 1,
       fade: true, 
       autoplay: true, 
-      autoplaySpeed: 2000
+      autoplaySpeed: 2000,
+      pauseOnFocus:true,
     };
     return (
       <div className='slick-container'>
@@ -27,8 +28,8 @@ export default function CarouselSlider() {
             return (
             <article key={person.id}>
             <img src={person.image} alt={person.name} className='person-img' /> 
-            <p>{person.name}</p> 
-            <p>{person.title}</p>  
+            <h2>{person.name}</h2> 
+            <h4>{person.title}</h4>  
             <p>{person.quote}</p>            
 
             </article> 
